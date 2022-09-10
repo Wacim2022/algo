@@ -1,0 +1,25 @@
+ALGORITHM second_task
+VAR
+    set1:= ARRAY_OF_STRING[4]=[3, 1, 7, 9]
+    set2:= ARRAY_OF_STRING[5]=[2, 4, 1, 9, 3]
+    set3:=ARRAY_OF_STRING[10]
+    sum:=INTEGER
+    check:=BOOLEAN
+BEGIN
+    set3 = set1.concat(set2) // [3, 1, 7, 9 , 2 , 4, 1, 9, 3]
+    FOR i FROM 0 TO set3.length-1 DO
+        check = false
+        FOR j FROM 0 TO set3.length-1  DO
+            IF (i=j) THEN
+                continue
+            END_IF
+            IF (set3[i]=set3[j]) THEN
+                check = true
+            END_IF
+        END_FOR
+        IF (check=false) THEN
+            sum= sum + set3[i]
+        END_IF
+    END_FOR
+    write('output is :',sum)
+END
